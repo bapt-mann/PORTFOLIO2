@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio — Baptiste BOIN</title>
+  <meta name="description" content="Portfolio de Baptiste BOIN — Étudiant BTS SIO SLAM (programmation). Projets, compétences, alternance et contact." />
+  <meta property="og:title" content="Portfolio — Baptiste BOIN" />
+  <meta property="og:description" content="Projets, compétences, alternance et contact." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta name="color-scheme" content="dark light" />
+  <!-- Fonts (optional) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #0b0d12;
+      --bg-soft: #121623;
+      --text: #e7ecf3;
+      --muted: #9ba7b4;
+      --brand: #7c5cff; /* accent */
+      --brand-2: #18b3b3;
+      --card: #121826;
+      --border: #263143;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    :root[data-theme="light"] {
+      --bg: #f7f9fc;
+      --bg-soft: #ffffff;
+      --text: #0f172a;
+      --muted: #445469;
+      --brand: #5b4bdf;
+      --brand-2: #0e8a8a;
+      --card: #ffffff;
+      --border: #e6eaf1;
+      --shadow: 0 8px 24px rgba(2,6,23,.08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: linear-gradient(180deg, var(--bg) 0%, var(--bg) 50%, var(--bg-soft) 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* Layout */
+    .container { width: min(1100px, 92vw); margin: 0 auto; }
+    header.site {
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: saturate(120%) blur(8px);
+      background: color-mix(in oklab, var(--bg-soft) 80%, transparent);
+      border-bottom: 1px solid var(--border);
+    }
+    .topbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .75rem 0; }
+    .brand { display: flex; align-items: center; gap: .75rem; text-decoration: none; color: var(--text); }
+    .logo { width: 36px; height: 36px; border-radius: 12px; background: linear-gradient(135deg, var(--brand), var(--brand-2)); display: grid; place-items: center; font-weight: 800; box-shadow: var(--shadow); }
+    .logo span { font-size: 0.95rem; }
+    nav a { color: var(--muted); text-decoration: none; padding: .5rem .75rem; border-radius: .6rem; font-weight: 600; }
+    nav a.active, nav a:hover { color: var(--text); background: color-mix(in oklab, var(--brand) 20%, transparent); }
+    .actions { display: flex; align-items: center; gap: .5rem; }
+    .btn, button.btn { display: inline-flex; align-items: center; gap: .5rem; padding: .55rem .9rem; border: 1px solid var(--border); background: var(--card); color: var(--text); border-radius: .7rem; cursor: pointer; text-decoration: none; font-weight: 600; }
+    .btn.primary { background: linear-gradient(135deg, var(--brand), var(--brand-2)); border: none; }
+
+    /* Hero */
+    #hero { padding: 64px 0 28px; }
+    .hero-inner { display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 2rem; }
+    @media (max-width: 860px) { .hero-inner { grid-template-columns: 1fr; } }
+    .hero h1 { font-size: clamp(1.6rem, 2.2rem + 1vw, 3rem); line-height: 1.15; margin: 0 0 .5rem; }
+    .hero h1 .accent { background: linear-gradient(135deg, var(--brand), var(--brand-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .subtitle { color: var(--muted); font-weight: 600; letter-spacing: .2px; }
+    .badges { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
+    .badge { font-size: .85rem; padding: .35rem .6rem; border: 1px solid var(--border); border-radius: .6rem; color: var(--muted); }
+
+    .portrait {
+      display: grid; place-items: center; position: relative;
+      border: 1px solid var(--border); background: var(--card);
+      padding: 1rem; border-radius: 1.2rem; box-shadow: var(--shadow);
+      min-height: 280px;
+    }
+    .avatar {
+      width: 160px; height: 160px; border-radius: 36px; display: grid; place-items: center; font-size: 48px; font-weight: 800;
+      background: conic-gradient(from 220deg, var(--brand), var(--brand-2));
+      color: #fff; user-select: none;
+    }
+    .portrait small { color: var(--muted); margin-top: .75rem; display: block; }
+
+    section { padding: 48px 0; border-top: 1px solid var(--border); }
+    section h2 { font-size: clamp(1.2rem, 1rem + .9vw, 2rem); margin: 0 0 1rem; }
+    .grid { display: grid; gap: 1rem; }
+    .grid.cols-2 { grid-template-columns: 1fr 1fr; }
+    .grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    @media (max-width: 900px) { .grid.cols-2, .grid.cols-3 { grid-template-columns: 1fr; } }
+
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 1.1rem; padding: 1rem; box-shadow: var(--shadow); }
+    .card h3 { margin: 0 0 .25rem; font-size: 1.05rem; }
+    .muted { color: var(--muted); }
+
+    /* Skills */
+    .skill-chips { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .chip { padding: .35rem .6rem; border: 1px solid var(--border); border-radius: .6rem; font-size: .9rem; }
+    .meter { height: 10px; background: color-mix(in oklab, var(--brand) 15%, transparent); border-radius: 99px; overflow: hidden; border: 1px solid var(--border); }
+    .meter > i { display: block; height: 100%; background: linear-gradient(90deg, var(--brand), var(--brand-2)); width: var(--w, 50%); }
+
+    /* Projects */
+    .project { display: grid; grid-template-columns: 1fr; gap: .5rem; }
+    .stack { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .stack .chip { font-size: .8rem; }
+
+    /* Timeline */
+    .timeline { position: relative; }
+    .timeline::before { content: ""; position: absolute; left: 10px; top: .25rem; bottom: .25rem; width: 2px; background: var(--border); }
+    .tl-item { position: relative; padding-left: 2rem; margin: 1rem 0; }
+    .tl-item::before { content: ""; position: absolute; left: 2px; top: .5rem; width: 16px; height: 16px; border-radius: 50%; background: linear-gradient(135deg, var(--brand), var(--brand-2)); border: 2px solid var(--card); box-shadow: var(--shadow); }
+
+    /* Footer */
+    footer { padding: 32px 0 56px; color: var(--muted); text-align: center; }
+
+    /* Helpers */
+    .row { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; }
+    .space { flex: 1; }
+    .hide { display: none !important; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+  </style>
+</head>
+<body>
+  <a class="sr-only" href="#about" data-i18n="skip">Aller au contenu</a>
+  <header class="site">
+    <div class="container topbar">
+      <a class="brand" href="#hero" aria-label="Accueil">
+        <div class="logo" aria-hidden="true"><span>BB</span></div>
+        <strong>Baptiste BOIN</strong>
+      </a>
+      <nav class="row" aria-label="Navigation principale">
+        <a href="#about" class="navlink" data-i18n="nav.about">À propos</a>
+        <a href="#skills" class="navlink" data-i18n="nav.skills">Compétences</a>
+        <a href="#projects" class="navlink" data-i18n="nav.projects">Projets</a>
+        <a href="#education" class="navlink" data-i18n="nav.education">Formation</a>
+        <a href="#work" class="navlink" data-i18n="nav.work">Alternance</a>
+        <a href="#contact" class="navlink" data-i18n="nav.contact">Contact</a>
+      </nav>
+      <div class="actions">
+        <button class="btn" id="themeToggle" aria-label="Basculer le thème">🌗</button>
+        <button class="btn" id="langToggle" aria-label="Basculer la langue" title="FR / EN">FR</button>
+        <a href="#contact" class="btn primary" data-i18n="cta.hire">Me contacter</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="hero container">
+      <div class="hero-inner">
+        <div>
+          <h1 class="hero"><span data-i18n="hero.hi">Bonjour, je suis</span> <span class="accent">Baptiste BOIN</span> — <span data-i18n="hero.role">Étudiant BTS SIO SLAM (programmation)</span></h1>
+          <div class="subtitle" data-i18n="hero.tag">Mayenne • Passionné de dev, jeux vidéo, échecs (Laval) & culture japonaise</div>
+          <div class="badges" aria-label="Mots-clés">
+            <span class="badge">Python</span>
+            <span class="badge">C</span>
+            <span class="badge">C#</span>
+            <span class="badge">HTML</span>
+            <span class="badge">CSS</span>
+            <span class="badge">JavaScript</span>
+            <span class="badge">PHP</span>
+            <span class="badge">SQL</span>
+          </div>
+          <div class="row" style="margin-top:1.25rem">
+            <a class="btn" href="#projects" data-i18n="cta.viewProjects">Voir mes projets</a>
+            <a class="btn" href="cv.pdf" download data-i18n="cta.cv">Télécharger mon CV</a>
+          </div>
+        </div>
+        <figure class="portrait">
+          <div class="avatar" aria-label="Photo de profil">BB</div>
+          <small data-i18n="hero.photoNote">Espace réservé pour ta photo (ajouter photo.jpg / mettre à jour l'URL)</small>
+        </figure>
+      </div>
+    </section> 
+
+    <section id="about">
+      <div class="container grid cols-2">
+        <div>
+          <h2 data-i18n="about.title">À propos de moi</h2>
+          <p data-i18n="about.p1">Je m'appelle Baptiste BOIN. Étudiant en BTS SIO option SLAM, j'aime raisonner pour concevoir et développer des projets utiles. Curieux, j'apprends en pratiquant et en explorant de nouvelles technos.</p>
+          <p data-i18n="about.p2">Je suis passionné de jeux vidéo, je pratique les échecs au club de Laval, et je m'intéresse à la culture japonaise (cuisine, animation, paysages).</p>
+          <div class="row">
+            <span class="muted">Mayenne, FR</span>
+            <span class="muted"><span data-i18n="about.goal">Objectif : alternance réussie & montée en compétences full‑stack</span></span>
+          </div>
+        </div>
+        <div class="card">
+          <h3 data-i18n="about.quick">En bref</h3>
+          <ul>
+            <li><strong data-i18n="about.stat1k">BTS SIO SLAM</strong> — <span data-i18n="about.stat1v">1re année terminée (2024‑2025)</span></li>
+            <li><strong>Git/GitHub</strong> — <span data-i18n="about.stat2v">notions (versioning solo)</span></li>
+            <li><strong>IDE</strong> — VS Code, Visual Studio</li>
+            <li><strong data-i18n="about.stat4k">Langues</strong> — <span data-i18n="about.stat4v">Français (natif), Anglais (technique)</span></li>
+          </ul>
+          <div class="row" style="margin-top:.5rem">
+            <a class="btn" href="https://github.com/bapt-mann" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn" href="https://www.linkedin.com/in/baptiste-boin-71506a2a6" target="_blank" rel="noopener">LinkedIn</a>
+            <button class="btn" id="copyEmail"> <span>Copier l'email</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <h2 data-i18n="skills.title">Compétences</h2>
+        <div class="grid cols-3">
+          <div class="card">
+            <h3 data-i18n="skills.cat1">Langages & Web</h3>
+            <div class="skill-chips">
+              <span class="chip">Python</span>
+              <span class="chip">C</span>
+              <span class="chip">C# (.NET)</span>
+              <span class="chip">HTML</span>
+              <span class="chip">CSS</span>
+              <span class="chip">JavaScript</span>
+              <span class="chip">PHP</span>
+            </div>
+            <div class="muted" style="margin-top:.6rem" data-i18n="skills.note1">Bases solides en programmation scolaire et projets perso.</div>
+          </div>
+
+          <div class="card">
+            <h3 data-i18n="skills.cat2">Données & BDD</h3>
+            <div class="skill-chips">
+              <span class="chip">SQL</span>
+              <span class="chip">SQL Server</span>
+              <span class="chip">MySQL</span>
+              <span class="chip">Requêtes & vues</span>
+              <span class="chip">Export Excel</span>
+            </div>
+            <div class="muted" style="margin-top:.6rem" data-i18n="skills.note2">Requêtage, jointures, scripts d'export.</div>
+          </div>
+
+          <div class="card">
+            <h3 data-i18n="skills.cat3">Outils & Notions</h3>
+            <div class="skill-chips">
+              <span class="chip">Git/GitHub (notions)</span>
+              <span class="chip">VS Code</span>
+              <span class="chip">Visual Studio</span>
+              <span class="chip">API REST (lecture)</span>
+              <span class="chip">MDM CLYD (exposition)</span>
+            </div>
+            <div class="muted" style="margin-top:.6rem" data-i18n="skills.note3">Bonne autonomie d'apprentissage, documentation first.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <h2 data-i18n="projects.title">Projets</h2>
+        <div class="grid cols-2">
+          <article class="card project">
+            <div>
+              <h3>Manipulation de deux bases proches (C#)</h3>
+              <p class="muted" data-i18n="p.dbSync.desc">Application C# pour comparer/rapprocher deux bases contenant des données similaires (détection d'écarts, consolidation, export).</p>
+              <div class="stack">
+                <span class="chip">C#</span><span class="chip">.NET</span><span class="chip">WPF</span><span class="chip">SQL Server</span><span class="chip">ADO.NET</span>
+              </div>
+            </div>
+            <div class="meter" aria-label="Progression (estimée)"><i style="--w: 80%"></i></div>
+            <ul class="muted">
+              <li data-i18n="p.dbSync.b1">Fonctions : mapping de champs, rapport des divergences, export CSV/XLSX.</li>
+              <li data-i18n="p.dbSync.b2">Objectif : faciliter la consolidation entre 2 SI hétérogènes.</li>
+            </ul>
+          </article>
+
+          <article class="card project">
+            <div>
+              <h3>Surveillance de dossier & upload (Python)</h3>
+              <p class="muted" data-i18n="p.watch.desc">Interface qui surveille un dossier et envoie automatiquement certains fichiers vers un serveur (ex : images, PDF).</p>
+              <div class="stack">
+                <span class="chip">Python</span><span class="chip">watchdog</span><span class="chip">requests</span><span class="chip">Tkinter</span>
+              </div>
+            </div>
+            <div class="meter"><i style="--w: 70%"></i></div>
+            <ul class="muted">
+              <li data-i18n="p.watch.b1">Filtrage par extension et taille, file d'envoi.</li>
+              <li data-i18n="p.watch.b2">Journalisation des transferts et reprise simple.</li>
+            </ul>
+          </article>
+
+          <article class="card project">
+            <div>
+              <h3>Simulations & scripts (Python)</h3>
+              <p class="muted" data-i18n="p.sim.desc">Petites simulations algorithmiques et utilitaires (calculs, transformations de données, automatisations).</p>
+              <div class="stack">
+                <span class="chip">Python</span><span class="chip">pandas</span><span class="chip">matplotlib</span>
+              </div>
+            </div>
+            <div class="meter"><i style="--w: 65%"></i></div>
+            <ul class="muted">
+              <li data-i18n="p.sim.b1">Approche TDD sur certains exercices.</li>
+              <li data-i18n="p.sim.b2">Documentation succincte dans README.</li>
+            </ul>
+          </article>
+
+          <article class="card project">
+            <div>
+              <h3>Raccourcis clavier Bloc‑notes (C)</h3>
+              <p class="muted" data-i18n="p.hotkey.desc">Petit utilitaire C pour créer un raccourci clavier ouvrant Bloc‑notes et accélérer la prise de notes.</p>
+              <div class="stack">
+                <span class="chip">C</span><span class="chip">WinAPI</span>
+              </div>
+            </div>
+            <div class="meter"><i style="--w: 50%"></i></div>
+            <ul class="muted">
+              <li data-i18n="p.hotkey.b1">Focus sur la gestion de raccourcis globaux et la stabilité.</li>
+              <li data-i18n="p.hotkey.b2">Aucune capture de frappes stockée.</li>
+            </ul>
+          </article>
+
+          <article class="card project">
+            <div>
+              <h3>Export de requêtes SQL → Excel</h3>
+              <p class="muted" data-i18n="p.sql2xl.desc">Outil qui exécute une requête SQL et exporte le résultat vers Excel pour analyses rapides.</p>
+              <div class="stack">
+                <span class="chip">Python</span><span class="chip">SQL</span><span class="chip">openpyxl</span><span class="chip">SQL Server</span>
+              </div>
+            </div>
+            <div class="meter"><i style="--w: 75%"></i></div>
+            <ul class="muted">
+              <li data-i18n="p.sql2xl.b1">Paramétrage de la requête & des colonnes.</li>
+              <li data-i18n="p.sql2xl.b2">Génération d'onglets par requête.</li>
+            </ul>
+          </article>
+
+          <article class="card project">
+            <div>
+              <h3>SIO — Travaux pratiques Web</h3>
+              <p class="muted" data-i18n="p.webtp.desc">TP HTML/CSS/JS et PHP/MySQL réalisés durant la formation (CRUD, formulaires, petites APIs).</p>
+              <div class="stack">
+                <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">PHP</span><span class="chip">MySQL</span>
+              </div>
+            </div>
+            <div class="meter"><i style="--w: 60%"></i></div>
+            <ul class="muted">
+              <li data-i18n="p.webtp.b1">Bonnes pratiques d'accessibilité & sémantique.</li>
+              <li data-i18n="p.webtp.b2">Validation côté serveur basique.</li>
+            </ul>
+          </article>
+        </div>
+        <p class="muted" style="margin-top:.75rem" data-i18n="projects.note">Ajoute des captures / liens GitHub quand tu veux — j'ai préparé les cartes pour les accueillir.</p>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <h2 data-i18n="edu.title">Formation</h2>
+        <div class="timeline">
+          <div class="tl-item">
+            <h3>BTS SIO — SLAM <span class="muted">(2024–2026, en cours)</span></h3>
+            <div class="muted" data-i18n="edu.bts">Institut : IIA Saint‑Berthevin — 1re année terminée. Projets web (PHP/MySQL), scripts Python, bases C#.</div>
+          </div>
+          <div class="tl-item">
+            <h3>BAC STI2D — SIN <span class="muted">(2024)</span></h3>
+            <div class="muted" data-i18n="edu.bac">Lycée : Immaculée Conception (Laval). Parcours SIN.</div>
+          </div>
+          <div class="tl-item">
+            <h3 data-i18n="edu.schools">Collège Saint‑Joseph (Ernée) — Parcours secondaire</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="container">
+        <h2 data-i18n="work.title">Alternance</h2>
+        <article class="card">
+          <div class="row">
+            <div>
+              <h3>Ambroise Bouvier Transports</h3>
+              <div class="muted" data-i18n="work.dates">Août 2024 — Septembre 2026 (à confirmer)</div>
+            </div>
+            <div class="space"></div>
+            <a class="btn" href="https://github.com/bapt-mann/NotesEtudes/blob/main/VersDir/2-%20Notes%20Principales/Portfolio%20%20Contenu.md#alternance-" target="_blank" rel="noopener" data-i18n="work.link">Voir notes</a>
+          </div>
+          <ul style="margin-top:.5rem">
+            <li data-i18n="work.b1">Gestion de smartphones chauffeurs via l'outil MDM CLYD (déploiement, configuration).</li>
+            <li data-i18n="work.b2">Assistance aux utilisateurs (poste, messagerie, bureautique).</li>
+            <li data-i18n="work.b3">Gestion des comptes dans Active Directory (création, droits, suivi).</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h2 data-i18n="contact.title">Contact</h2>
+        <div class="grid cols-2">
+          <div class="card">
+            <h3 data-i18n="contact.letsTalk">Discutons</h3>
+            <p class="muted" data-i18n="contact.p">Je suis ouvert aux échanges, stages et projets. N'hésitez pas.</p>
+            <ul>
+              <li> <a href="mailto:baptiste.boin06@gmail.com">baptiste.boin06@gmail.com</a></li>
+              <li> <a href="https://github.com/bapt-mann" target="_blank" rel="noopener">github.com/bapt-mann</a></li>
+              <li> <a href="https://www.linkedin.com/in/baptiste-boin-71506a2a6" target="_blank" rel="noopener">LinkedIn</a></li>
+              <li> Mayenne, FR</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3 data-i18n="contact.analytics">Statistiques (facultatif)</h3>
+            <p class="muted" data-i18n="contact.analyticsP">Tu peux activer des stats anonymes (ex : Plausible). Ton consentement est enregistré localement.</p>
+            <div class="row">
+              <button class="btn" id="enableAnalytics" data-i18n="contact.enable">Activer</button>
+              <button class="btn" id="disableAnalytics" data-i18n="contact.disable">Désactiver</button>
+            </div>
+            <small class="muted" data-i18n="contact.analyticsNote">Paramètre : data-domain à renseigner ci‑dessous.</small>
+            <pre id="analyticsSnippet" style="overflow:auto; background:transparent; border:1px dashed var(--border); padding:.75rem; border-radius:.6rem; margin-top:.5rem"><code>&lt;script defer data-domain="VOTRE-DOMAINE.FR" src="https://plausible.io/js/script.js"&gt;&lt;/script&gt;</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="row" style="justify-content:center; gap:1rem">
+        <span>© <span id="year"></span> Baptiste BOIN</span>
+        <span>•</span>
+        <span data-i18n="footer.update">Dernière mise à jour : 28 août 2025</span>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- JSON-LD (SEO) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Baptiste BOIN",
+      "jobTitle": "Étudiant BTS SIO SLAM",
+      "address": {"@type":"PostalAddress","addressLocality":"Mayenne","addressCountry":"FR"},
+      "email": "mailto:baptiste.boin06@gmail.com",
+      "sameAs": [
+        "https://github.com/bapt-mann",
+        "https://www.linkedin.com/in/baptiste-boin-71506a2a6"
+      ]
+    }
+  </script>
+
+  <script>
+    // ===== Utilities =====
+    const $ = (sel, root=document) => root.querySelector(sel);
+    const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
+
+    // Year
+    $('#year').textContent = new Date().getFullYear();
+
+    // ===== Theme toggle =====
+    const themeBtn = $('#themeToggle');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const savedTheme = localStorage.getItem('theme');
+    function applyTheme(mode){
+      document.documentElement.setAttribute('data-theme', mode);
+      localStorage.setItem('theme', mode);
+    }
+    applyTheme(savedTheme || (systemPrefersDark ? 'dark' : 'light'));
+    themeBtn.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme');
+      applyTheme(current === 'dark' ? 'light' : 'dark');
+    });
+
+    // ===== Language / i18n =====
+    const langBtn = $('#langToggle');
+    const messages = {
+      fr: {
+        skip: "Aller au contenu",
+        'nav.about': 'À propos', 'nav.skills':'Compétences', 'nav.projects':'Projets', 'nav.education':'Formation', 'nav.work':'Alternance', 'nav.contact':'Contact',
+        'cta.hire':'Me contacter', 'cta.viewProjects':'Voir mes projets', 'cta.cv':'Télécharger mon CV',
+        'hero.hi':'Bonjour, je suis', 'hero.role':'Étudiant BTS SIO SLAM (programmation)', 'hero.tag':'Mayenne • Passionné de dev, jeux vidéo, échecs (Laval) & culture japonaise', 'hero.photoNote':'Espace réservé pour ta photo (ajouter photo.jpg / mettre à jour l\'URL)',
+        'about.title':'À propos de moi', 'about.p1':"Je m'appelle Baptiste BOIN. Étudiant en BTS SIO option SLAM, j'aime raisonner pour concevoir et développer des projets utiles. Curieux, j'apprends en pratiquant et en explorant de nouvelles technos.", 'about.p2':"Je suis passionné de jeux vidéo, je pratique les échecs au club de Laval, et je m'intéresse à la culture japonaise (cuisine, animation, paysages).", 'about.goal':'Objectif : alternance réussie & montée en compétences full‑stack', 'about.quick':'En bref', 'about.stat1k':'BTS SIO SLAM', 'about.stat1v':'1re année terminée (2024‑2025)', 'about.stat4k':'Langues', 'about.stat4v':'Français (natif), Anglais (technique)',
+        'skills.title':'Compétences', 'skills.cat1':'Langages & Web', 'skills.cat2':'Données & BDD', 'skills.cat3':'Outils & Notions', 'skills.note1':'Bases solides en programmation scolaire et projets perso.', 'skills.note2':'Requêtage, jointures, scripts d\'export.', 'skills.note3':'Bonne autonomie d\'apprentissage, documentation first.',
+        'projects.title':'Projets', 'projects.note':'💡 Ajoute des captures / liens GitHub quand tu veux — j\'ai préparé les cartes pour les accueillir.',
+        'p.dbSync.desc':'Application C# pour comparer/rapprocher deux bases contenant des données similaires (détection d\'écarts, consolidation, export).', 'p.dbSync.b1':'Fonctions : mapping de champs, rapport des divergences, export CSV/XLSX.', 'p.dbSync.b2':'Objectif : faciliter la consolidation entre 2 SI hétérogènes.',
+        'p.watch.desc':'Interface qui surveille un dossier et envoie automatiquement certains fichiers vers un serveur (ex : images, PDF).', 'p.watch.b1':'Filtrage par extension et taille, file d\'envoi.', 'p.watch.b2':'Journalisation des transferts et reprise simple.',
+        'p.sim.desc':'Petites simulations algorithmiques et utilitaires (calculs, transformations de données, automatisations).', 'p.sim.b1':'Approche TDD sur certains exercices.', 'p.sim.b2':'Documentation succincte dans README.',
+        'p.hotkey.desc':'Petit utilitaire C pour créer un raccourci clavier ouvrant Bloc‑notes et accélérer la prise de notes.', 'p.hotkey.b1':'Focus sur la gestion de raccourcis globaux et la stabilité.', 'p.hotkey.b2':'Aucune capture de frappes stockée.',
+        'p.sql2xl.desc':'Outil qui exécute une requête SQL et exporte le résultat vers Excel pour analyses rapides.', 'p.sql2xl.b1':'Paramétrage de la requête & des colonnes.', 'p.sql2xl.b2':'Génération d\'onglets par requête.',
+        'p.webtp.desc':'TP HTML/CSS/JS et PHP/MySQL réalisés durant la formation (CRUD, formulaires, petites APIs).', 'p.webtp.b1':'Bonnes pratiques d\'accessibilité & sémantique.', 'p.webtp.b2':'Validation côté serveur basique.',
+        'edu.title':'Formation', 'edu.bts':'Institut : IIA Saint‑Berthevin — 1re année terminée. Projets web (PHP/MySQL), scripts Python, bases C#.', 'edu.bac':'Lycée : Immaculée Conception (Laval). Parcours SIN.', 'edu.schools':'Collège Saint‑Joseph (Ernée) — Parcours secondaire',
+        'work.title':'Alternance', 'work.dates':'Août 2024 — Septembre 2026 (à confirmer)', 'work.link':'Voir notes', 'work.b1':'Gestion de smartphones chauffeurs via l\'outil MDM CLYD (déploiement, configuration).', 'work.b2':'Assistance aux utilisateurs (poste, messagerie, bureautique).', 'work.b3':'Gestion des comptes dans Active Directory (création, droits, suivi).',
+        'contact.title':'Contact', 'contact.letsTalk':'Discutons', 'contact.p':'Je suis ouvert aux échanges, stages et projets. N\'hésitez pas.', 'contact.analytics':'Statistiques (facultatif)', 'contact.analyticsP':'Tu peux activer des stats anonymes (ex : Plausible). Ton consentement est enregistré localement.', 'contact.enable':'Activer', 'contact.disable':'Désactiver', 'contact.analyticsNote':'Paramètre : data-domain à renseigner ci‑dessous.',
+        'footer.update':'Dernière mise à jour : 28 août 2025'
+      },
+      en: {
+        skip: "Skip to content",
+        'nav.about': 'About', 'nav.skills':'Skills', 'nav.projects':'Projects', 'nav.education':'Education', 'nav.work':'Apprenticeship', 'nav.contact':'Contact',
+        'cta.hire':'Contact me', 'cta.viewProjects':'View my projects', 'cta.cv':'Download my CV',
+        'hero.hi':'Hi, I\'m', 'hero.role':'BTS SIO SLAM student (software development)', 'hero.tag':'Mayenne • Into coding, video games, chess (Laval) & Japanese culture', 'hero.photoNote':'Placeholder for your photo (add photo.jpg / update URL)',
+        'about.title':'About me', 'about.p1':"I\'m Baptiste BOIN, a BTS SIO (SLAM) student who loves reasoning to design and build useful software. I learn by doing and exploring new tech.", 'about.p2':'I enjoy video games, play chess in Laval\'s club, and love Japanese culture (food, anime, landscapes).', 'about.goal':'Goal: succeed in apprenticeship & grow full‑stack skills', 'about.quick':'At a glance', 'about.stat1k':'BTS SIO SLAM', 'about.stat1v':'Year 1 completed (2024‑2025)', 'about.stat4k':'Languages', 'about.stat4v':'French (native), English (technical)',
+        'skills.title':'Skills', 'skills.cat1':'Languages & Web', 'skills.cat2':'Data & DBs', 'skills.cat3':'Tools & Basics', 'skills.note1':'Solid bases from school and personal projects.', 'skills.note2':'Querying, joins, export scripts.', 'skills.note3':'Self‑learning mindset, documentation first.',
+        'projects.title':'Projects', 'projects.note':'💡 Add screenshots / GitHub links whenever you like — cards are ready.',
+        'p.dbSync.desc':'C# app to compare/reconcile two similar databases (diffs, consolidation, export).', 'p.dbSync.b1':'Features: field mapping, diff report, CSV/XLSX export.', 'p.dbSync.b2':'Goal: make consolidation easier between two heterogeneous IS.',
+        'p.watch.desc':'UI that watches a folder and automatically uploads certain files to a server (e.g., images, PDFs).', 'p.watch.b1':'Filter by extension & size, send queue.', 'p.watch.b2':'Transfer logging and simple resume.',
+        'p.sim.desc':'Small algorithmic simulations and utilities (math, data transforms, automation).', 'p.sim.b1':'Some exercises done TDD‑style.', 'p.sim.b2':'Short README documentation.',
+        'p.hotkey.desc':'Tiny C utility to open Notepad with a global hotkey to speed up note taking.', 'p.hotkey.b1':'Focus on global hotkey handling & stability.', 'p.hotkey.b2':'No keystrokes captured or stored.',
+        'p.sql2xl.desc':'Tool that runs a SQL query and exports the result to Excel for quick analysis.', 'p.sql2xl.b1':'Parameterized query & columns.', 'p.sql2xl.b2':'One sheet per query.',
+        'p.webtp.desc':'HTML/CSS/JS and PHP/MySQL practical work from school (CRUD, forms, small APIs).', 'p.webtp.b1':'Accessibility & semantic best practices.', 'p.webtp.b2':'Basic server‑side validation.',
+        'edu.title':'Education', 'edu.bts':'Institute: IIA Saint‑Berthevin — Year 1 done. Web projects (PHP/MySQL), Python scripts, C# basics.', 'edu.bac':'High school: Immaculée Conception (Laval). SIN track.', 'edu.schools':'Collège Saint‑Joseph (Ernée) — Middle school',
+        'work.title':'Apprenticeship', 'work.dates':'Aug 2024 — Sep 2026 (to confirm)', 'work.link':'See notes', 'work.b1':'Driver smartphones management with CLYD MDM (deploy, configure).', 'work.b2':'User support (workstation, mail, office).', 'work.b3':'Active Directory accounts (create, access, follow‑up).',
+        'contact.title':'Contact', 'contact.letsTalk':'Let\'s talk', 'contact.p':'Open to chats, internships and projects.', 'contact.analytics':'Analytics (optional)', 'contact.analyticsP':'You can enable anonymous analytics (e.g., Plausible). Consent is stored locally.', 'contact.enable':'Enable', 'contact.disable':'Disable', 'contact.analyticsNote':'Set your data-domain below.',
+        'footer.update':'Last updated: Aug 28, 2025'
+      }
+    };
+    function applyI18n(lang){
+      document.documentElement.lang = lang;
+      $$('#langToggle').forEach(btn => btn.textContent = lang.toUpperCase());
+      $$('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        el.textContent = messages[lang][key] || el.textContent;
+      });
+      localStorage.setItem('lang', lang);
+    }
+    const savedLang = localStorage.getItem('lang') || 'fr';
+    applyI18n(savedLang);
+    langBtn.addEventListener('click', () => {
+      const lang = document.documentElement.lang === 'fr' ? 'en' : 'fr';
+      applyI18n(lang);
+    });
+
+    // ===== Active nav highlight =====
+    const links = $$('.navlink');
+    const sections = links.map(a => $(a.getAttribute('href'))).filter(Boolean);
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const id = '#' + e.target.id;
+          links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === id));
+        }
+      });
+    }, { rootMargin: '-50% 0px -46% 0px', threshold: 0 });
+    sections.forEach(s => io.observe(s));
+
+    // ===== Copy email =====
+    const EMAIL = 'baptiste.boin06@gmail.com';
+    $('#copyEmail').addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(EMAIL); } catch {}
+      const b = $('#copyEmail');
+      const old = b.innerHTML;
+      b.innerHTML = '✅ Copié !';
+      setTimeout(() => b.innerHTML = old, 1400);
+    });
+
+    // ===== Optional analytics consent (Plausible) =====
+    const CONSENT_KEY = 'analyticsConsent';
+    function injectPlausible(){
+      if ($('#plausible')) return; // avoid duplicates
+      const s = document.createElement('script');
+      s.defer = true; s.src = 'https://plausible.io/js/script.js';
+      s.setAttribute('data-domain', 'VOTRE-DOMAINE.FR');
+      s.id = 'plausible';
+      document.head.appendChild(s);
+    }
+    function removePlausible(){
+      const s = $('#plausible'); if (s) s.remove();
+    }
+    if (localStorage.getItem(CONSENT_KEY) === 'true') injectPlausible();
+    $('#enableAnalytics').addEventListener('click', () => { localStorage.setItem(CONSENT_KEY, 'true'); injectPlausible(); alert('✅ Analytics activés'); });
+    $('#disableAnalytics').addEventListener('click', () => { localStorage.setItem(CONSENT_KEY, 'false'); removePlausible(); alert('⛔ Analytics désactivés'); });
+  </script>
+</body>
+</html>
