@@ -4,40 +4,31 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portfolio — Baptiste BOIN</title>
-  <meta name="description" content="Portfolio de Baptiste BOIN — Etudiant BTS SIO SLAM (programmation). Projets, compétences, alternance et contact." />
+  <meta name="description" content="Portfolio de Baptiste BOIN — Etudiant BTS SIO SLAM. Projets C#, Python, Web et alternance." />
   <meta property="og:title" content="Portfolio — Baptiste BOIN" />
-  <meta property="og:description" content="Projets, compétences, alternance et contact." />
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="fr_FR" />
-  <meta name="color-scheme" content="dark light" />
   <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script>
-  <!-- Fonts (optional) -->
+  <script src="script.js" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
-
 </head>
 <body>
-  <a class="sr-only" href="#about" data-i18n="skip">Aller au contenu</a>
   <header class="site">
     <div class="container topbar">
       <a class="brand" href="#hero" aria-label="Accueil">
-        <img class="logo" src="batman.webp" alt="Photo de profil">
+        <div class="logo"><span>BB</span></div>
         <strong>Baptiste BOIN</strong>
       </a>
       <nav class="row" aria-label="Navigation principale">
         <a href="#about" class="navlink" data-i18n="nav.about">À propos</a>
         <a href="#skills" class="navlink" data-i18n="nav.skills">Compétences</a>
         <a href="#projects" class="navlink" data-i18n="nav.projects">Projets</a>
-        <a href="#education" class="navlink" data-i18n="nav.education">Formation</a>
         <a href="#work" class="navlink" data-i18n="nav.work">Alternance</a>
         <a href="#contact" class="navlink" data-i18n="nav.contact">Contact</a>
       </nav>
       <div class="actions">
-        <button class="btn" id="themeToggle" aria-label="Basculer le thème">🌗</button>
-        <button class="btn" id="langToggle" aria-label="Basculer la langue" title="FR / EN">FR</button>
-        <a href="#contact" class="btn primary" data-i18n="cta.hire">Me contacter</a>
+        <button class="btn icon-only" id="themeToggle" aria-label="Thème">🌗</button>
+        <button class="btn icon-only" id="langToggle" aria-label="Langue">FR</button>
       </div>
     </div>
   </header>
@@ -46,25 +37,22 @@
     <section id="hero" class="hero container">
       <div class="hero-inner">
         <div>
-          <h1 class="hero"><span data-i18n="hero.hi">Bonjour, je suis</span> <span class="accent">Baptiste BOIN</span> — <span data-i18n="hero.role">Etudiant BTS SIO SLAM (programmation)</span></h1>
-          <div class="subtitle" data-i18n="hero.tag">Mayenne • Passionné de dev, jeux vidéo, échecs (Laval) & culture japonaise</div>
+          <h1 class="hero"><span data-i18n="hero.hi">Bonjour, je suis</span> <span class="accent">Baptiste BOIN</span> — <span data-i18n="hero.role">Alternant Développement (BTS SIO)</span></h1>
+          <div class="subtitle" data-i18n="hero.tag">Mayenne • Passionné de Dev, Stratégie & Culture Japonaise</div>
           <div class="badges" aria-label="Mots-clés">
+            <span class="badge">C# .NET</span>
             <span class="badge">Python</span>
-            <span class="badge">C</span>
-            <span class="badge">C#</span>
-            <span class="badge">HTML</span>
-            <span class="badge">CSS</span>
+            <span class="badge">Symfony</span>
+            <span class="badge">SQL Server</span>
             <span class="badge">JavaScript</span>
-            <span class="badge">PHP</span>
-            <span class="badge">SQL</span>
           </div>
-          <div class="row" style="margin-top:1.25rem">
-            <a class="btn" href="#projects" data-i18n="cta.viewProjects">Voir mes projets</a>
-            <a class="btn" href="cv.pdf" download data-i18n="cta.cv">Télécharger mon CV</a>
+          <div class="row" style="margin-top:1.5rem">
+            <a class="btn primary" href="#contact" data-i18n="cta.hire">Me contacter</a>
+            <a class="btn" href="cv.pdf" download data-i18n="cta.cv">Télécharger CV</a>
           </div>
         </div>
         <figure class="portrait">
-          <img class="avatar" src="batman.webp" alt="Photo de profil">
+          <div class="avatar">BB</div>
        </figure>
       </div>
     </section> 
@@ -73,24 +61,19 @@
       <div class="container grid cols-2">
         <div>
           <h2 data-i18n="about.title">À propos de moi</h2>
-          <p data-i18n="about.p1">Je m'appelle Baptiste BOIN. Etudiant en BTS SIO option SLAM, j'aime raisonner pour concevoir et développer des projets utiles. Curieux, j'apprends en pratiquant et en explorant de nouvelles technos.</p>
-          <p data-i18n="about.p2">Je suis passionné de jeux vidéo, je pratique les échecs au club de Laval, et je m'intéresse à la culture japonaise (cuisine, animation, paysages).</p>
-          <div class="row">
-            <span class="muted">Mayenne, FR</span>
-            <span class="muted"><span data-i18n="about.goal">Objectif : alternance réussie & montée en compétences full‑stack</span></span>
-          </div>
+          <p data-i18n="about.p1">Étudiant en BTS SIO option SLAM et alternant, je conçois des outils pour répondre à des besoins concrets.</p>
+          <p data-i18n="about.p2">En dehors du code, je suis passionné par les jeux de stratégie, la musique et la culture japonaise.</p>
         </div>
         <div class="card">
           <h3 data-i18n="about.quick">En bref</h3>
           <ul>
-            <li><strong data-i18n="about.stat1k">BTS SIO SLAM</strong> — <span data-i18n="about.stat1v">1re année terminée (2024‑2025)</span></li>
-            <li><strong>Git/GitHub</strong> — <span data-i18n="about.stat2v">notions (versioning solo)</span></li>
-            <li><strong>IDE</strong> — VS Code, Visual Studio</li>
-            <li><strong data-i18n="about.stat4k">Langues</strong> — <span data-i18n="about.stat4v">Français (natif), Anglais (technique)</span></li>
+            <li><strong data-i18n="about.stat1k">Études</strong> — <span data-i18n="about.stat1v">BTS SIO (En cours), BAC STI2D (Mention Bien)</span></li>
+            <li><strong>Age</strong> — 18 ans (2006)</li>
+            <li><strong>Passions</strong> — <span data-i18n="about.hobbies">Stratégie, Musique, Japon</span></li>
           </ul>
           <div class="row" style="margin-top:.5rem">
-            <a class="btn" href="https://github.com/bapt-mann" target="_blank" rel="noopener">GitHub</a>
-            <a class="btn" href="https://www.linkedin.com/in/baptiste-boin-71506a2a6" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn" href="https://github.com/bapt-mann" target="_blank">GitHub</a>
+            <a class="btn" href="https://www.linkedin.com/in/baptiste-boin-71506a2a6" target="_blank">LinkedIn</a>
           </div>
         </div>
       </div>
@@ -104,38 +87,32 @@
             <h3 data-i18n="skills.cat1">Langages & Web</h3>
             <div class="skill-chips">
               <span class="chip">Python</span>
-              <span class="chip">C</span>
               <span class="chip">C# (.NET)</span>
-              <span class="chip">HTML</span>
-              <span class="chip">CSS</span>
-              <span class="chip">JavaScript</span>
               <span class="chip">PHP</span>
+              <span class="chip">HTML/CSS</span>
+              <span class="chip">JavaScript</span>
+              <span class="chip">C</span>
             </div>
-            <div class="muted" style="margin-top:.6rem" data-i18n="skills.note1">Bases solides en programmation scolaire et projets perso.</div>
           </div>
 
           <div class="card">
             <h3 data-i18n="skills.cat2">Données & BDD</h3>
             <div class="skill-chips">
-              <span class="chip">SQL</span>
               <span class="chip">SQL Server</span>
               <span class="chip">MySQL</span>
-              <span class="chip">Requêtes & vues</span>
-              <span class="chip">Export Excel</span>
+              <span class="chip">Requêtes & Vues</span>
             </div>
-            <div class="muted" style="margin-top:.6rem" data-i18n="skills.note2">Requêtage, jointures, scripts d'export.</div>
           </div>
 
           <div class="card">
-            <h3 data-i18n="skills.cat3">Outils & Notions</h3>
+            <h3 data-i18n="skills.cat3">Outils & Frameworks</h3>
             <div class="skill-chips">
-              <span class="chip">Git/GitHub (notions)</span>
-              <span class="chip">VS Code</span>
-              <span class="chip">Visual Studio</span>
-              <span class="chip">API REST (lecture)</span>
-              <span class="chip">MDM CLYD (exposition)</span>
+              <span class="chip">Git / GitHub</span>
+              <span class="chip">Node.js</span>
+              <span class="chip">Symfony</span>
+              <span class="chip">Entity Framework</span>
+              <span class="chip">WPF</span>
             </div>
-            <div class="muted" style="margin-top:.6rem" data-i18n="skills.note3">Bonne autonomie d'apprentissage, documentation first.</div>
           </div>
         </div>
       </div>
@@ -143,117 +120,69 @@
 
     <section id="projects">
       <div class="container">
-        <h2 data-i18n="projects.title">Projets</h2>
+        <h2 data-i18n="projects.title">Projets & Missions</h2>
         <div class="grid cols-2">
+          
           <article class="card project">
             <div>
-              <h3>Manipulation de deux bases proches (C#)</h3>
-              <p class="muted" data-i18n="p.dbSync.desc">Application C# pour comparer/rapprocher deux bases contenant des données similaires (détection d'écarts, consolidation, export).</p>
+              <h3 data-i18n="p.demat.title">Outil Dématérialisation</h3>
+              <p class="muted" data-i18n="p.demat.desc">Automatisation de processus avec Python et Excel.</p>
               <div class="stack">
-                <span class="chip">C#</span><span class="chip">.NET</span><span class="chip">WPF</span><span class="chip">SQL Server</span><span class="chip">ADO.NET</span>
+                <span class="chip">Python</span><span class="chip">SQL Server</span><span class="chip">Excel</span>
               </div>
             </div>
-            <div class="meter" aria-label="Progression (estimée)"><i style="--w: 80%"></i></div>
-            <ul class="muted">
-              <li data-i18n="p.dbSync.b1">Fonctions : mapping de champs, rapport des divergences, export CSV/XLSX.</li>
-              <li data-i18n="p.dbSync.b2">Objectif : faciliter la consolidation entre 2 SI hétérogènes.</li>
-            </ul>
           </article>
 
           <article class="card project">
             <div>
-              <h3>Surveillance de dossier & upload (Python)</h3>
-              <p class="muted" data-i18n="p.watch.desc">Interface qui surveille un dossier et envoie automatiquement certains fichiers vers un serveur (ex : images, PDF).</p>
+              <h3 data-i18n="p.sqltool.title">Outil Requêtes SQL</h3>
+              <p class="muted" data-i18n="p.sqltool.desc">Script d'exécution et d'analyse de requêtes multi-bases.</p>
               <div class="stack">
-                <span class="chip">Python</span><span class="chip">watchdog</span><span class="chip">requests</span><span class="chip">Tkinter</span>
+                <span class="chip">Python</span><span class="chip">SQL Server</span><span class="chip">MySQL</span>
               </div>
             </div>
-            <div class="meter"><i style="--w: 70%"></i></div>
-            <ul class="muted">
-              <li data-i18n="p.watch.b1">Filtrage par extension et taille, file d'envoi.</li>
-              <li data-i18n="p.watch.b2">Journalisation des transferts et reprise simple.</li>
-            </ul>
           </article>
 
           <article class="card project">
             <div>
-              <h3>Simulations & scripts (Python)</h3>
-              <p class="muted" data-i18n="p.sim.desc">Petites simulations algorithmiques et utilitaires (calculs, transformations de données, automatisations).</p>
+              <h3 data-i18n="p.wpfdb.title">Liaison BDD (WPF)</h3>
+              <p class="muted" data-i18n="p.wpfdb.desc">Application Desktop pour lier et comparer deux bases de données.</p>
               <div class="stack">
-                <span class="chip">Python</span><span class="chip">pandas</span><span class="chip">matplotlib</span>
+                <span class="chip">C#</span><span class="chip">WPF</span><span class="chip">SQL Server</span>
               </div>
             </div>
-            <div class="meter"><i style="--w: 65%"></i></div>
-            <ul class="muted">
-              <li data-i18n="p.sim.b1">Approche TDD sur certains exercices.</li>
-              <li data-i18n="p.sim.b2">Documentation succincte dans README.</li>
-            </ul>
           </article>
 
           <article class="card project">
             <div>
-              <h3>Raccourcis clavier Bloc‑notes (C)</h3>
-              <p class="muted" data-i18n="p.hotkey.desc">Petit utilitaire C pour créer un raccourci clavier ouvrant Bloc‑notes et accélérer la prise de notes.</p>
+              <h3 data-i18n="p.contacts.title">Gestion Contacts (WPF)</h3>
+              <p class="muted" data-i18n="p.contacts.desc">Application de gestion de contacts CRUD.</p>
+              <div class="stack">
+                <span class="chip">C#</span><span class="chip">WPF</span><span class="chip">MySQL</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div>
+              <h3 data-i18n="p.spotify.title">App API Spotify</h3>
+              <p class="muted" data-i18n="p.spotify.desc">Exploitation de l'API Spotify via Node.js.</p>
+              <div class="stack">
+                <span class="chip">JavaScript</span><span class="chip">Node.js</span><span class="chip">API REST</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div>
+              <h3 data-i18n="p.keylogger.title">KeyLogger C</h3>
+              <p class="muted" data-i18n="p.keylogger.desc">Projet bas niveau pour comprendre la gestion des inputs.</p>
               <div class="stack">
                 <span class="chip">C</span><span class="chip">WinAPI</span>
               </div>
             </div>
-            <div class="meter"><i style="--w: 50%"></i></div>
-            <ul class="muted">
-              <li data-i18n="p.hotkey.b1">Focus sur la gestion de raccourcis globaux et la stabilité.</li>
-              <li data-i18n="p.hotkey.b2">Aucune capture de frappes stockée.</li>
-            </ul>
           </article>
 
-          <article class="card project">
-            <div>
-              <h3>Export de requêtes SQL → Excel</h3>
-              <p class="muted" data-i18n="p.sql2xl.desc">Outil qui exécute une requête SQL et exporte le résultat vers Excel pour analyses rapides.</p>
-              <div class="stack">
-                <span class="chip">Python</span><span class="chip">SQL</span><span class="chip">openpyxl</span><span class="chip">SQL Server</span>
-              </div>
-            </div>
-            <div class="meter"><i style="--w: 75%"></i></div>
-            <ul class="muted">
-              <li data-i18n="p.sql2xl.b1">Paramétrage de la requête & des colonnes.</li>
-              <li data-i18n="p.sql2xl.b2">Génération d'onglets par requête.</li>
-            </ul>
-          </article>
-
-          <article class="card project">
-            <div>
-              <h3>SIO — Travaux pratiques Web</h3>
-              <p class="muted" data-i18n="p.webtp.desc">TP HTML/CSS/JS et PHP/MySQL réalisés durant la formation (CRUD, formulaires, petites APIs).</p>
-              <div class="stack">
-                <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">PHP</span><span class="chip">MySQL</span>
-              </div>
-            </div>
-            <div class="meter"><i style="--w: 60%"></i></div>
-            <ul class="muted">
-              <li data-i18n="p.webtp.b1">Bonnes pratiques d'accessibilité & sémantique.</li>
-              <li data-i18n="p.webtp.b2">Validation côté serveur basique.</li>
-            </ul>
-          </article>
-        </div>
-        <p class="muted" style="margin-top:.75rem" data-i18n="projects.note">Ajoute des captures / liens GitHub quand tu veux — j'ai préparé les cartes pour les accueillir.</p>
-      </div>
-    </section>
-
-    <section id="education">
-      <div class="container">
-        <h2 data-i18n="edu.title">Formation</h2>
-        <div class="timeline">
-          <div class="tl-item">
-            <h3>BTS SIO — SLAM <span class="muted">(2024–2026, en cours)</span></h3>
-            <div class="muted" data-i18n="edu.bts">Institut : IIA Saint‑Berthevin — 1re année terminée. Projets web (PHP/MySQL), scripts Python, bases C#.</div>
-          </div>
-          <div class="tl-item">
-            <h3>BAC STI2D — SIN <span class="muted">(2024)</span></h3>
-            <div class="muted" data-i18n="edu.bac">Lycée : Immaculée Conception (Laval). Parcours SIN.</div>
-          </div>
-          <div class="tl-item">
-            <h3 data-i18n="edu.schools">Collège Saint‑Joseph (Ernée) — Parcours secondaire</h3>
-          </div>
         </div>
       </div>
     </section>
@@ -265,15 +194,13 @@
           <div class="row">
             <div>
               <h3>Ambroise Bouvier Transports</h3>
-              <div class="muted" data-i18n="work.dates">Août 2024 — Septembre 2026 (à confirmer)</div>
+              <div class="muted" data-i18n="work.dates">Contrat de 2 ans (En cours)</div>
             </div>
-            <div class="space"></div>
-            <a class="btn" href="https://github.com/bapt-mann/NotesEtudes/blob/main/VersDir/2-%20Notes%20Principales/Portfolio%20%20Contenu.md#alternance-" target="_blank" rel="noopener" data-i18n="work.link">Voir notes</a>
           </div>
           <ul style="margin-top:.5rem">
-            <li data-i18n="work.b1">Gestion de smartphones chauffeurs via l'outil MDM CLYD (déploiement, configuration).</li>
-            <li data-i18n="work.b2">Assistance aux utilisateurs (poste, messagerie, bureautique).</li>
-            <li data-i18n="work.b3">Gestion des comptes dans Active Directory (création, droits, suivi).</li>
+            <li data-i18n="work.b1">Développement d'outils internes (Python, C#).</li>
+            <li data-i18n="work.b2">Gestion de bases de données (SQL Server).</li>
+            <li data-i18n="work.b3">Support utilisateur et maintenance.</li>
           </ul>
         </article>
       </div>
@@ -282,26 +209,12 @@
     <section id="contact">
       <div class="container">
         <h2 data-i18n="contact.title">Contact</h2>
-        <div class="grid cols-2">
-          <div class="card">
-            <h3 data-i18n="contact.letsTalk">Discutons</h3>
-            <p class="muted" data-i18n="contact.p">Je suis ouvert aux échanges et projets. N'hésitez pas.</p>
-            <ul>
-              <li> <a href="mailto:baptiste.boin06@gmail.com">baptiste.boin06@gmail.com</a></li>
-              <li> <a href="https://github.com/bapt-mann" target="_blank" rel="noopener">github.com/bapt-mann</a></li>
-              <li> <a href="https://www.linkedin.com/in/baptiste-boin-71506a2a6" target="_blank" rel="noopener">LinkedIn</a></li>
-              <li> Mayenne, FR</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3 data-i18n="contact.analytics">Statistiques (facultatif)</h3>
-            <p class="muted" data-i18n="contact.analyticsP">Tu peux activer des stats anonymes (ex : Plausible). Ton consentement est enregistré localement.</p>
-            <div class="row">
-              <button class="btn" id="enableAnalytics" data-i18n="contact.enable">Activer</button>
-              <button class="btn" id="disableAnalytics" data-i18n="contact.disable">Désactiver</button>
-            </div>
-            <small class="muted" data-i18n="contact.analyticsNote">Paramètre : data-domain à renseigner ci‑dessous.</small>
-            <pre id="analyticsSnippet" style="overflow:auto; background:transparent; border:1px dashed var(--border); padding:.75rem; border-radius:.6rem; margin-top:.5rem"><code>&lt;script defer data-domain="VOTRE-DOMAINE.FR" src="https://plausible.io/js/script.js"&gt;&lt;/script&gt;</code></pre>
+        <div class="card" style="text-align:center">
+          <h3 data-i18n="contact.letsTalk">Discutons</h3>
+          <p class="muted">baptiste.boin06@gmail.com</p>
+          <div class="row" style="justify-content:center; margin-top:1rem">
+             <a class="btn primary" href="mailto:baptiste.boin06@gmail.com">Envoyer un mail</a>
+             <a class="btn" href="https://www.linkedin.com/in/baptiste-boin-71506a2a6" target="_blank">LinkedIn</a>
           </div>
         </div>
       </div>
@@ -312,27 +225,8 @@
     <div class="container">
       <div class="row" style="justify-content:center; gap:1rem">
         <span>© <span id="year"></span> Baptiste BOIN</span>
-        <span>•</span>
-        <span data-i18n="footer.update">Dernière mise à jour : 28 août 2025</span>
       </div>
     </div>
-
   </footer>
-
-  <!-- JSON-LD (SEO) -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Baptiste BOIN",
-      "jobTitle": "Etudiant BTS SIO SLAM",
-      "address": {"@type":"PostalAddress","addressLocality":"Mayenne","addressCountry":"FR"},
-      "email": "mailto:baptiste.boin06@gmail.com",
-      "sameAs": [
-        "https://github.com/bapt-mann",
-        "https://www.linkedin.com/in/baptiste-boin-71506a2a6"
-      ]
-    }
-  </script>
 </body>
 </html>
